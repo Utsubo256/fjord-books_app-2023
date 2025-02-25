@@ -2,6 +2,7 @@ en:
   activerecord:
     models:
       book: Book
+      books: Books
     attributes:
       book:
         title: Title
@@ -15,19 +16,21 @@ en:
       title: New book
     edit:
       title: Editing book
+  common:
+    actions:
+      create:
+        success: "%{model} was successfully created"
+      update:
+        success: "%{model} was successfully updated"
+      destroy:
+        success: "%{model} was successfully destroyed"
     buttons:
-      show: Show this book
-      back: Back to books
-      create: Create Book
-      new: New book
-      edit: Edit this book
-      destroy: Destroy this book
-    create:
-      success: Book was successfully created
-    update:
-      success: Book was successfully updated
-    destroy:
-      success: Book was successfully destroyed
+      show: "Show this %{model}"
+      back: "Back to %{models}"
+      create: "Create %{model}"
+      new: "New %{model}"
+      edit: "Edit this %{model}"
+      destroy: "Destroy this %{model}"
   helpers:
     submit:
       create: Create
