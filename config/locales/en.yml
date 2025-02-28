@@ -2,7 +2,6 @@ en:
   activerecord:
     models:
       book: Book
-      books: Books
     attributes:
       book:
         title: Title
@@ -26,7 +25,7 @@ en:
         success: "%{model} was successfully destroyed"
     buttons:
       show: "Show this %{model}"
-      back: "Back to %{models}"
+      back: "Back to %{model}"
       create: "Create %{model}"
       new: "New %{model}"
       edit: "Edit this %{model}"

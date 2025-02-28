@@ -2,7 +2,6 @@ ja:
   activerecord:
     models:
       book: 本
-      books: 本一覧
     attributes:
       book:
         title: タイトル
@@ -26,7 +25,7 @@ ja:
         success: "%{model}を削除しました"
     buttons:
       show: "この%{model}を表示"
-      back: "%{models}に戻る"
+      back: "%{model}に戻る"
       create: "%{model}を作成する"
       new: "%{model}の新規作成"
       edit: "この%{model}を編集"

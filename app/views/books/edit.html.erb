@@ -6,5 +6,5 @@
 
 <nav class="page-nav">
   <%= link_to t("common.buttons.show", model: Book.model_name.human), @book %> |
-  <%= link_to t("common.buttons.back", models: t("activerecord.models.books")), books_path %>
+  <%= link_to t("common.buttons.back", model: t("books.index.title")), books_path %>
 </nav>
