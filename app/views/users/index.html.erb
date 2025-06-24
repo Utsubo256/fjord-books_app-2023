@@ -4,6 +4,7 @@
 
 <nav class="page-nav">
   <%= link_to t('views.common.title_index', name: Book.model_name.human.downcase), books_path %> | 
+  <%= link_to I18n.t("devise.registrations.edit.title", resource: User.model_name.human.downcase) , edit_user_registration_path %> | 
   <%= link_to t('views.common.sign_out'), destroy_user_session_path, data: { "turbo-method": :delete } %>
 </nav>
 
