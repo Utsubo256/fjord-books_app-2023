@@ -9,6 +9,8 @@ class User < ApplicationRecord
   end
   validate :avatar_content_type
 
+  private
+
   def avatar_content_type
     valid_extensions = %w[image/jpeg image/png image/gif]
     return unless avatar.attached?
