@@ -16,6 +16,6 @@ class User < ApplicationRecord
     return unless avatar.attached?
     return if valid_extensions.include?(avatar.content_type)
 
-    errors.add(:avatar, I18n.t('activerecord.errors.models.user.attributes.avatar.invalid_format'))
+    errors.add(:avatar, :invalid_format)
   end
 end
