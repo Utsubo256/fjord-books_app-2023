@@ -20,3 +20,4 @@ ja:
       report:
         title: タイトル
         content: 本文
+        user_id: 投稿者

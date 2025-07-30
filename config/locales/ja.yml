@@ -202,6 +202,8 @@ ja:
       previous: '‹ 前'
       next: '次 ›'
       truncate: '…'
+    report:
+      deleted_user: "退会ユーザー"
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
