@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show edit update]
+  before_action :set_report, only: %i[show edit update destroy]
+  before_action :authorized_user, only: %i[edit update destroy]
+
   def index
     @reports = Report.order(:id).page(params[:page])
   end
@@ -31,6 +33,11 @@ class ReportsController < ApplicationController
     end
   end
 
+  def destroy
+    @report.destroy
+    redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
+  end
+
   private
 
   def set_report
@@ -39,5 +46,9 @@ class ReportsController < ApplicationController
 
   def report_params
     params.require(:report).permit(:title, :content).merge(user: current_user)
+  end
+
+  def authorized_user
+    redirect_to reports_url, alert: t('errors.messages.not_permitted') unless @report.user == current_user
   end
 end
