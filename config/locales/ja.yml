@@ -118,6 +118,7 @@ ja:
     select:
       prompt: 選択してください
     submit:
+      comment: コメントする
       create: 登録する
       submit: 保存する
       update: 更新する
@@ -179,6 +180,7 @@ ja:
     am: 午前
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      detailed: "%Y年%m月%d日(%a) %H時%M分"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後

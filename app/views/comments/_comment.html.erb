@@ -1,0 +1,30 @@
+<h2><%= Comment.model_name.human %></h2>
+
+<% if comments.any? %>
+  <div>
+    <% comments.each do |comment| %>
+      <hr>
+      <div class="comment-header">
+        <p><%= comment.user ? comment.user.name : t("views.report.deleted_user") %></p>
+        <p><%= l comment.created_at, format: :detailed %></p>
+      </div>
+      <p><%= comment.content %><p>
+      <% if comment.user == current_user %>
+        <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase),
+                      polymorphic_path([commentable, comment]),
+                      method: :delete %>
+      <% end %>
+    <% end %>
+  </div>
+  <hr>
+<% else %>
+  <div>
+    <p>まだコメントが付いていません。</p>
+  </div>
+<% end %>
+
+<%= form_with model: [commentable, Comment.new] do |form| %>
+  <%= form.label :content, Comment.human_attribute_name(:content) %>
+  <%= form.text_area :content %>
+  <%= form.submit %>
+<% end %>
