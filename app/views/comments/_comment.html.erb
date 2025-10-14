@@ -25,6 +25,13 @@
 
 <%= form_with model: [commentable, Comment.new] do |form| %>
   <%= form.label :content, Comment.human_attribute_name(:content) %>
-  <%= form.text_area :content %>
+  <%= form.text_area :content, required: true %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <% @comment.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
   <%= form.submit %>
 <% end %>

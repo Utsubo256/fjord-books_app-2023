@@ -7,10 +7,12 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.build(comment_params.merge(user: current_user))
+    @comments = @commentable.comments.preload(:user)
 
     if @comment.save
       redirect_to polymorphic_url(@commentable), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
+      flash.now[:alert] = t('controllers.common.notice_create_failure', name: Comment.model_name.human)
       render "#{@commentable.model_name.plural}/show", status: :unprocessable_entity
     end
   end

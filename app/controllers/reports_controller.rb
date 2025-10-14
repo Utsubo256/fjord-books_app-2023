@@ -9,7 +9,8 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @comments = @report.comments
+    @comment = @report.comments.build
+    @comments = @report.comments.excluding(@comment)
   end
 
   def new
