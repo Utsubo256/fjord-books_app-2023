@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     else
       @comments = @commentable.comments.preload(:user).order(created_at: :asc)
       flash.now[:alert] = t('controllers.common.notice_create_failure', name: Comment.model_name.human)
-      render "#{@commentable.model_name.plural}/show", status: :unprocessable_entity
+      render commentable_show, status: :unprocessable_entity
     end
   end
 
@@ -23,15 +23,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
-  def set_commentable
-    if params[:book_id]
-      @book = Book.find(params[:book_id])
-    elsif params[:report_id]
-      @report = Report.find(params[:report_id])
-    end
-    @commentable = @book || @report
-  end
 
   def set_comment
     @comment = @commentable.comments.find(params[:id])
