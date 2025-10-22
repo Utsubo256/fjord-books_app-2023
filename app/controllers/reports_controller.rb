@@ -18,7 +18,7 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @report = Report.new(report_params)
+    @report = current_user.reports.new(report_params)
     if @report.save
       redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
@@ -48,7 +48,7 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:title, :content).merge(user: current_user)
+    params.require(:report).permit(:title, :content)
   end
 
   def authorized_user
