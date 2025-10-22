@@ -5,7 +5,7 @@
     <% comments.each do |comment| %>
       <hr>
       <div class="comment-header">
-        <p><%= comment.user ? comment.user.name : t("views.report.deleted_user") %></p>
+        <p><%= comment.user ? [comment.user.name, comment.user.email].find(&:present?) : t("views.report.deleted_user") %></p>
         <p><%= l comment.created_at, format: :detailed %></p>
       </div>
       <p><%= comment.content %><p>
