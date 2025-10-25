@@ -9,8 +9,8 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @comment = @report.comments.build
-    @comments = @report.comments.excluding(@comment)
+    @comment = Comment.new
+    @comments = @report.comments.preload(:user).order(created_at: :asc)
   end
 
   def new
