@@ -9,4 +9,8 @@ class User < ApplicationRecord
   end
   has_many :reports, dependent: :destroy
   has_many :comments, dependent: :nullify
+
+  def name_or_email
+    name.presence || email
+  end
 end
