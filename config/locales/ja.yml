@@ -102,6 +102,7 @@ ja:
       model_invalid: 'バリデーションに失敗しました: %{errors}'
       not_a_number: は数値で入力してください
       not_an_integer: は整数で入力してください
+      not_permitted: 'この操作は許可されていません'
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
       present: は入力しないでください
@@ -117,6 +118,7 @@ ja:
     select:
       prompt: 選択してください
     submit:
+      comment: コメントする
       create: 登録する
       submit: 保存する
       update: 更新する
@@ -178,6 +180,7 @@ ja:
     am: 午前
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      detailed: "%Y年%m月%d日(%a) %H時%M分"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
@@ -196,15 +199,20 @@ ja:
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
       title_show: "%{name}の詳細"
       sign_out: ログアウト
+    comments:
+      none: まだコメントが付いていません
     pagination:
       first: '« 最初'
       last: '最後 »'
       previous: '‹ 前'
       next: '次 ›'
       truncate: '…'
+    report:
+      deleted_user: "退会ユーザー"
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
+      notice_create_failure: "%{name}の作成ができませんでした。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
   layouts:
